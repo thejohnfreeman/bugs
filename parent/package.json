@@ -2,6 +2,7 @@
   "name": "parent",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "./src/internal/index.js",
   "types": "./src/internal/index.ts",
   "scripts": {
     "build": "tsc --project tsconfig.json"

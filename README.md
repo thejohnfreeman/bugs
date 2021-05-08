@@ -1,6 +1,7 @@
-`parent` is a module, written in TypeScript, of mostly type declarations. It
-declares the `types` field in its `package.json`. It has a `tsconfig.json`
-used by its `build` script.
+`parent` is a module, written in TypeScript, of mostly type declarations.
+The `types` field in its `package.json` points to its source TypeScript
+entrypoint and the `main` field points to its compiled JavaScript entrypoint.
+It has a `tsconfig.json` used by its `build` script.
 
 `child` is a module, written in TypeScript, that depends on `parent`. It has
 a `tsconfig.json` and wants to build a bundle with Rollup.
@@ -57,4 +58,9 @@ Error: Unexpected token (Note that you need plugins to import files that are not
     at async ModuleLoader.fetchModule (node_modules/rollup/dist/shared/rollup.js:18509:9)
 ```
 
-What's the problem?
+I'm suspecting that Rollup successfully compiles the `child` module to an
+ESNext module that includes the line `import parent from 'parent'`, and
+instead of resolving that module specifier to the _JavaScript_ in the parent
+module, it resolves it to the TypeScript, which includes a line that is not
+valid JavaScript (`import type Parent from './Parent'`).
+How can I fix this?
