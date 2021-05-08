@@ -12,6 +12,7 @@
     "parent": "file:../parent"
   },
   "scripts": {
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "test": "tsc --project tsconfig.json --outDir out --module esnext"
   }
 }
