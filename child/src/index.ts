@@ -1,2 +1,4 @@
 import parent from 'parent'
-console.log(parent)
+import { String } from 'parent'
+const greeting: String = 'hello'
+console.log(greeting, parent)
