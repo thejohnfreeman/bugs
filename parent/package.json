@@ -1,0 +1,12 @@
+{
+  "name": "parent",
+  "version": "1.0.0",
+  "license": "MIT",
+  "types": "./src/internal/index.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
